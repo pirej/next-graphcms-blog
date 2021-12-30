@@ -12,7 +12,9 @@ const graphcms = new GraphQLClient(
 );
 
 const test = ({ posts }) => {
-  console.log(posts[0].postContent);
+  console.log(posts);
+  // console.log(posts[0].images[0].url);
+
   return (
     <section>
       <div className={styles.grid}>
@@ -21,10 +23,14 @@ const test = ({ posts }) => {
           <p>Home sweet home</p>
         </a>
       </div>
+
       <ul>
-        {posts.map(({ id }) => (
+        {posts.map(({ id, title, postContent, images }) => (
           <div key={id}>
-            <h3>sssss</h3>
+            <h3>{title}</h3>
+            <h3>{images[0].url}</h3>
+
+            <RichText content={postContent.raw.children} />
           </div>
         ))}
       </ul>
@@ -40,8 +46,26 @@ const QUERY = gql`
   {
     posts {
       id
+      images {
+        id
+        fileName
+        url
+      }
       postContent {
-        html
+        raw
+      }
+      title
+      slug
+      ratings
+      updatedAt
+      authoredBy {
+        ... on Author {
+          id
+          author
+          avatar {
+            id
+          }
+        }
       }
     }
   }
