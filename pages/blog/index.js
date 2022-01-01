@@ -13,8 +13,11 @@ const graphcms = new GraphQLClient(
 
 const PostStyle = styled.section`
   /* width: 80vw; */
-  padding: 0 12%;
+  padding: 0 20%;
   margin: 5% auto;
+  @media (min-width: 1280px) {
+    padding: 0 16%;
+  }
 `;
 
 const blog = ({ posts }) => {

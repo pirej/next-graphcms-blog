@@ -11,14 +11,24 @@ const Wrapper = styled.div`
     border-radius: 8px;
 
     .imgWrapper {
+      @media (max-width: 1440px) {
+        flex: 2;
+      }
+      @media (max-width: 1280px) {
+        flex: 2;
+      }
+      @media (max-width: 1024px) {
+        flex: 3;
+      }
+      @media (max-width: 768px) {
+        flex: 2;
+      }
+
       /* background-color: red; */
-      border-radius: 8px;
       margin-top: 4px;
 
-      img {
-        display: flax;
+      .image {
         border-radius: 8px;
-        flex: 1;
       }
     }
     /* line-height: 150%; */
@@ -26,7 +36,7 @@ const Wrapper = styled.div`
       color: #8abeff;
     }
     section {
-      flex: 4;
+      flex: 3;
       /* background-color: teal; */
       h2 {
         margin: 0.2% 0 0.3% 1.5%;
@@ -37,6 +47,39 @@ const Wrapper = styled.div`
         font-size: 1.1rem;
         /* letter-spacing: 0.01rem; */
       }
+      @media (max-width: 1920px) {
+        h2 {
+        }
+        p {
+        }
+      }
+      @media (max-width: 1440px) {
+        h2 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 1rem;
+          line-height: 1.2rem;
+        }
+      }
+      @media (max-width: 1280px) {
+        h2 {
+        }
+        p {
+        }
+      }
+      @media (max-width: 1024px) {
+        h2 {
+        }
+        p {
+        }
+      }
+      @media (max-width: 768px) {
+        h2 {
+        }
+        p {
+        }
+      }
     }
   }
 `;
@@ -46,13 +89,20 @@ const PostCard = props => {
 
   // console.log(content);
   const subheading = content[0].children[0].text;
-  const firstParagraph = content[1].children[0].text.substring(0, 400);
+  //const firstParagraph = content[1].children[0].text.substring(0, 180); //1024
+  const firstParagraph = content[1].children[0].text.substring(0, 520); //1440
 
   return (
     <Wrapper>
       <div className="postWrap">
         <div className="imgWrapper">
-          <Image src={imgUrl} height={200} width={300} alt="blog-post" />
+          <Image
+            src={imgUrl}
+            height={200}
+            width={300}
+            alt="blog-post"
+            className={"image"}
+          />
         </div>
         <section>
           <h2>{title}</h2>

@@ -9,7 +9,7 @@ const Navigation = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 12%;
 
   .imgWrapper {
     img {
