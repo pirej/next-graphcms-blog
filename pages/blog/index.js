@@ -1,5 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 import PostCard from "../../components/PostCard";
+import styled from "styled-components";
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1.graphcms.com/v2/ckxqxp5pl0pty01z1hfufbw6n/master",
@@ -10,20 +11,24 @@ const graphcms = new GraphQLClient(
   }
 );
 
+const PostStyle = styled.section`
+  /* width: 80vw; */
+  padding: 0 12%;
+  margin: 5% auto;
+`;
+
 const blog = ({ posts }) => {
   return (
-    <section>
-      <ul>
-        {posts.map(({ id, title, postContent, images }) => (
-          <PostCard
-            key={id}
-            title={title}
-            imgUrl={images[0].url}
-            content={postContent.raw.children}
-          />
-        ))}
-      </ul>
-    </section>
+    <PostStyle>
+      {posts.map(({ id, title, postContent, images }) => (
+        <PostCard
+          key={id}
+          title={title}
+          imgUrl={images[0].url}
+          content={postContent.raw.children}
+        />
+      ))}
+    </PostStyle>
   );
 };
 
