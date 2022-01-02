@@ -89,22 +89,37 @@ const PostCard = props => {
   const { title, imgUrl, content } = props;
 
   ///******************************** */
-  const [winWidth, setWinWidth] = useState(1440);
+  // get the window width at page load
+  const [winWidth, setWinWidth] = useState(5);
   console.log(winWidth);
-
   ///******************************** */
+  // responsive substring value based on window's width
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setWinWidth(window.innerWidth);
+      let win = window.innerWidth;
+      win >= 1440
+        ? setWinWidth(660)
+        : win >= 1360
+        ? setWinWidth(520)
+        : win >= 1280
+        ? setWinWidth(440)
+        : win >= 1024
+        ? setWinWidth(240)
+        : win >= 768
+        ? setWinWidth(120)
+        : win >= 540
+        ? setWinWidth(45)
+        : win >= 411
+        ? setWinWidth(30)
+        : win >= 360
+        ? setWinWidth(25)
+        : setWinWidth(15);
     }
   }, []);
-  ///******************************** */
+  // ///******************************** */
 
-  // console.log(content);
   const subheading = content[0].children[0].text;
-  //const firstParagraph = content[1].children[0].text.substring(0, 180); //1024
-  const firstParagraph = content[1].children[0].text.substring(0, 520); //1440
-
+  const firstParagraph = content[1].children[0].text.substring(0, winWidth);
   return (
     <Wrapper>
       <div className="postWrap">
