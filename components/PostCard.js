@@ -65,20 +65,64 @@ const Wrapper = styled.div`
       }
       @media (max-width: 1280px) {
         h2 {
+          font-size: 1.55rem;
         }
         p {
+          font-size: 1.2rem;
+          line-height: 1.3rem;
         }
       }
       @media (max-width: 1024px) {
         h2 {
+          font-size: 1.3rem;
         }
         p {
+          font-size: 0.98rem;
+          line-height: 1rem;
         }
       }
       @media (max-width: 768px) {
         h2 {
+          font-size: 1.3rem;
         }
         p {
+          font-size: 0.98rem;
+          line-height: 1rem;
+        }
+      }
+      @media (max-width: 540px) {
+        h2 {
+          font-size: 0.98rem;
+        }
+        p {
+          font-size: 0.9rem;
+          line-height: 1rem;
+        }
+      }
+      @media (max-width: 411px) {
+        h2 {
+          font-size: 0.9rem;
+        }
+        p {
+          font-size: 0.85rem;
+          line-height: 1rem;
+        }
+      @media (max-width: 380px) {
+        h2 {
+          font-size: 0.8rem;
+        }
+        p {
+          font-size: 0.8rem;
+          line-height: 0.9rem;
+        }
+      }
+      @media (max-width: 280px) {
+        h2 {
+          font-size: 0.6rem;
+        }
+        p {
+          font-size: 0.6rem;
+          line-height: 0.9rem;
         }
       }
     }
