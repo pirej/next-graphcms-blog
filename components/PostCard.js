@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
   .postWrap {
@@ -86,6 +87,18 @@ const Wrapper = styled.div`
 
 const PostCard = props => {
   const { title, imgUrl, content } = props;
+
+  ///******************************** */
+  const [winWidth, setWinWidth] = useState(1440);
+  console.log(winWidth);
+
+  ///******************************** */
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWinWidth(window.innerWidth);
+    }
+  }, []);
+  ///******************************** */
 
   // console.log(content);
   const subheading = content[0].children[0].text;
