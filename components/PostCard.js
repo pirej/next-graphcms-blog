@@ -12,14 +12,17 @@ const Wrapper = styled.div`
     border-radius: 8px;
 
     .imgWrapper {
+      @media (max-width: 1920px) {
+        /* flex: 1; */
+      }
       @media (max-width: 1440px) {
-        flex: 2;
+        flex: 1;
       }
       @media (max-width: 1280px) {
-        flex: 2;
+        flex: 1;
       }
       @media (max-width: 1024px) {
-        flex: 3;
+        flex: 2;
       }
       @media (max-width: 768px) {
         flex: 2;
@@ -48,10 +51,22 @@ const Wrapper = styled.div`
         font-size: 1.1rem;
         /* letter-spacing: 0.01rem; */
       }
-      @media (max-width: 1920px) {
+      @media (min-width: 1920px) {
         h2 {
+          font-size: 1.8rem;
         }
         p {
+          font-size: 1.3rem;
+          /* line-height: 1.2rem; */
+        }
+      }
+      @media (max-width: 1920px) {
+        h2 {
+          font-size: 1.6rem;
+        }
+        p {
+          font-size: 1.2rem;
+          /* line-height: 1.2rem; */
         }
       }
       @media (max-width: 1440px) {
@@ -59,7 +74,7 @@ const Wrapper = styled.div`
           font-size: 1.5rem;
         }
         p {
-          font-size: 1rem;
+          font-size: 1.05rem;
           line-height: 1.2rem;
         }
       }
@@ -74,38 +89,41 @@ const Wrapper = styled.div`
       }
       @media (max-width: 1024px) {
         h2 {
-          font-size: 1.3rem;
+          font-size: 1.6rem;
         }
         p {
-          font-size: 0.98rem;
-          line-height: 1rem;
+          font-size: 1.3rem;
+          line-height: 1.4rem;
+          letter-spacing: 0.01rem;
         }
       }
       @media (max-width: 768px) {
         h2 {
-          font-size: 1.3rem;
+          font-size: 1.25rem;
+          
         }
         p {
-          font-size: 0.98rem;
-          line-height: 1rem;
+          font-size: 1rem;
+          line-height: 1.1rem;
+          letter-spacing: 0.03rem;
         }
       }
       @media (max-width: 540px) {
         h2 {
-          font-size: 0.98rem;
+          font-size: 1rem;
         }
         p {
           font-size: 0.9rem;
           line-height: 1rem;
         }
       }
-      @media (max-width: 411px) {
+      @media (max-width: 414px) {
         h2 {
-          font-size: 0.9rem;
+          font-size: 0.85rem;
         }
         p {
-          font-size: 0.85rem;
-          line-height: 1rem;
+          font-size: 0.80rem;
+          line-height: 0.80rem;
         }
       @media (max-width: 380px) {
         h2 {
@@ -114,6 +132,24 @@ const Wrapper = styled.div`
         p {
           font-size: 0.8rem;
           line-height: 0.9rem;
+        }
+      }
+      @media (max-width: 360px) {
+        h2 {
+          font-size: 0.75rem;
+        }
+        p {
+          font-size: 0.70rem;
+          line-height: 0.75rem;
+        }
+      }
+      @media (max-width: 320px) {
+        h2 {
+          font-size: 0.75rem;
+        }
+        p {
+          font-size: 0.75rem;
+          line-height: 0.75rem;
         }
       }
       @media (max-width: 280px) {
@@ -132,12 +168,12 @@ const Wrapper = styled.div`
 const PostCard = props => {
   const { title, imgUrl, content } = props;
 
-  ///******************************** */
-  // get the window width at page load
+  /******************************** */
+  /* get the window width at page load */
   const [winWidth, setWinWidth] = useState(5);
   console.log(winWidth);
-  ///******************************** */
-  // responsive substring value based on window's width
+  /******************************** */
+  /* responsive substring value based on window's width */
   useEffect(() => {
     if (typeof window !== "undefined") {
       let win = window.innerWidth;
@@ -146,21 +182,25 @@ const PostCard = props => {
         : win >= 1360
         ? setWinWidth(520)
         : win >= 1280
-        ? setWinWidth(440)
+        ? setWinWidth(400)
         : win >= 1024
-        ? setWinWidth(240)
+        ? setWinWidth(300)
         : win >= 768
-        ? setWinWidth(120)
+        ? setWinWidth(260)
         : win >= 540
-        ? setWinWidth(45)
+        ? setWinWidth(120)
         : win >= 411
-        ? setWinWidth(30)
+        ? setWinWidth(95)
+        : win >= 375
+        ? setWinWidth(70)
         : win >= 360
-        ? setWinWidth(25)
+        ? setWinWidth(85)
+        : win >= 320
+        ? setWinWidth(65)
         : setWinWidth(15);
     }
   }, []);
-  // ///******************************** */
+  /******************************** */
 
   const subheading = content[0].children[0].text;
   const firstParagraph = content[1].children[0].text.substring(0, winWidth);

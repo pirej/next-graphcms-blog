@@ -10,6 +10,18 @@ const Navigation = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 12%;
+  @media (min-width: 1280px) {
+    padding: 0 10%;
+  }
+  @media (max-width: 1024px) {
+    padding: 0 8%;
+  }
+  @media (max-width: 768px) {
+    padding: 0 6%;
+  }
+  @media (max-width: 414px) {
+    font-size: 0.9rem;
+  }
 
   .imgWrapper {
     img {
@@ -43,9 +55,9 @@ const MainNavigation = () => {
       </div>
       <nav>
         <ul>
-          <li>
+          {/* <li>
             <Link href="/">Home</Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/blog">Blog</Link>
           </li>
