@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
     .imgWrapper {
       @media (max-width: 1920px) {
-        /* flex: 1; */
+        flex: 1;
       }
       @media (max-width: 1440px) {
         flex: 1;
@@ -62,11 +62,20 @@ const Wrapper = styled.div`
       }
       @media (max-width: 1920px) {
         h2 {
-          font-size: 1.6rem;
+          font-size: 1.55rem;
         }
         p {
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           /* line-height: 1.2rem; */
+        }
+      }
+      @media (max-width: 1600px) {
+        h2 {
+          font-size: 1.55rem;
+        }
+        p {
+          font-size: 1.09rem;
+          line-height: 1.2rem;
         }
       }
       @media (max-width: 1440px) {
@@ -177,14 +186,16 @@ const PostCard = props => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       let win = window.innerWidth;
-      win >= 1440
-        ? setWinWidth(660)
+      win >= 1600
+        ? setWinWidth(700)
+        : win >= 1440
+        ? setWinWidth(520)
         : win >= 1360
         ? setWinWidth(520)
         : win >= 1280
         ? setWinWidth(400)
         : win >= 1024
-        ? setWinWidth(300)
+        ? setWinWidth(240)
         : win >= 768
         ? setWinWidth(260)
         : win >= 540

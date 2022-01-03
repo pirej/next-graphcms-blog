@@ -15,11 +15,11 @@ const PostStyle = styled.section`
   /* width: 80vw; */
   padding: 0 20%;
   margin: 5% auto;
-  /* @media (min-width: 1920px) {
-    padding: 0 20%;
+  /* @media (min-width: 1600px) {
+    padding: 0 16%;
   } */
-  @media (min-width: 1280px) {
-    padding: 0 12%;
+  @media (max-width: 1280px) {
+    padding: 0 14%;
   }
   @media (max-width: 1024px) {
     padding: 0 10%;
