@@ -12,14 +12,15 @@ const graphcms = new GraphQLClient(
 );
 
 const PostStyle = styled.section`
-  /* width: 80vw; */
+  display: flex;
   padding: 0 20%;
   margin: 5% auto;
-  /* @media (min-width: 1600px) {
+  /* -- */
+  @media (max-width: 1440px) {
     padding: 0 16%;
-  } */
+  }
   @media (max-width: 1280px) {
-    padding: 0 14%;
+    padding: 0 12%;
   }
   @media (max-width: 1024px) {
     padding: 0 10%;
@@ -27,19 +28,35 @@ const PostStyle = styled.section`
   @media (max-width: 768px) {
     padding: 0 10%;
   }
+  @media (max-width: 540px) {
+    padding: 0 8%;
+  }
+  @media (max-width: 380px) {
+    padding: 0 6%;
+  }
+  @media (max-width: 280px) {
+    padding: 0 3%;
+  }
+  .mainPostSection {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 const blog = ({ posts }) => {
   return (
     <PostStyle>
-      {posts.map(({ id, title, postContent, images }) => (
-        <PostCard
-          key={id}
-          title={title}
-          imgUrl={images[0].url}
-          content={postContent.raw.children}
-        />
-      ))}
+      <div className="mainPostSection">
+        {posts.map(({ id, title, subtitle, postContent, images }) => (
+          <PostCard
+            key={id}
+            title={title}
+            subtitle={subtitle}
+            imgUrl={images[0].url}
+            content={postContent.raw.children}
+          />
+        ))}
+      </div>
     </PostStyle>
   );
 };
@@ -61,6 +78,7 @@ const QUERY = gql`
         raw
       }
       title
+      subtitle
       slug
       ratings
       updatedAt

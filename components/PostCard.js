@@ -3,13 +3,32 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
+  width: 49%;
+  margin-right: 1%;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 2%;
+  }
   .postWrap {
     display: flex;
     margin-bottom: 2%;
-    background-color: #103b61;
-    /* background-color: #102a42; */
     padding: 1%;
     border-radius: 8px;
+    @media (min-width: 411px) {
+      align-items: center;
+    }
+
+    :hover {
+      background-color: #103b61;
+      cursor: pointer;
+    }
+    :active {
+      background-color: #266dad;
+      cursor: pointer;
+    }
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
 
     .imgWrapper {
       @media (max-width: 1920px) {
@@ -22,152 +41,159 @@ const Wrapper = styled.div`
         flex: 1;
       }
       @media (max-width: 1024px) {
-        flex: 2;
+        flex: 1;
       }
       @media (max-width: 768px) {
-        flex: 2;
+        flex: 1;
+      }
+      @media (max-width: 411px) {
+        margin: 0 auto;
       }
 
-      /* background-color: red; */
       margin-top: 4px;
 
       .image {
         border-radius: 8px;
       }
     }
-    /* line-height: 150%; */
     h2 {
       color: #8abeff;
     }
+    h2,
+    h3 {
+      font-weight: 400;
+    }
+
     section {
       flex: 3;
       /* background-color: teal; */
+
+      @media (min-width: 768px) {
+        flex: 4;
+      }
+      @media (min-width: 540px) {
+        flex: 4;
+      }
       h2 {
         margin: 0.2% 0 0.3% 1.5%;
-        letter-spacing: 0.05rem;
       }
-      p {
-        margin: 0.2% 0 0.2% 1.5%;
-        font-size: 1.1rem;
-        /* letter-spacing: 0.01rem; */
+      h3 {
+        margin: 0.2% 0 0.3% 1.5%;
       }
       @media (min-width: 1920px) {
         h2 {
-          font-size: 1.8rem;
+          font-size: 1.4rem;
         }
-        p {
-          font-size: 1.3rem;
-          /* line-height: 1.2rem; */
-        }
-      }
-      @media (max-width: 1920px) {
-        h2 {
-          font-size: 1.55rem;
-        }
-        p {
-          font-size: 1.1rem;
-          /* line-height: 1.2rem; */
+        h3 {
+          font-size: 1rem;
         }
       }
       @media (max-width: 1600px) {
         h2 {
-          font-size: 1.55rem;
+          font-size: 1.2rem;
         }
-        p {
-          font-size: 1.09rem;
-          line-height: 1.2rem;
+        h3 {
+          font-size: 0.9rem;
         }
       }
       @media (max-width: 1440px) {
         h2 {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
         }
-        p {
-          font-size: 1.05rem;
-          line-height: 1.2rem;
+        h3 {
+          font-size: 0.9rem;
         }
       }
       @media (max-width: 1280px) {
         h2 {
-          font-size: 1.55rem;
+          font-size: 1.18rem;
         }
-        p {
-          font-size: 1.2rem;
-          line-height: 1.3rem;
+        h3 {
+          font-size: 0.85rem;
         }
       }
       @media (max-width: 1024px) {
         h2 {
-          font-size: 1.6rem;
+          font-size: 1.05rem;
         }
-        p {
-          font-size: 1.3rem;
-          line-height: 1.4rem;
-          letter-spacing: 0.01rem;
+        h3 {
+          font-size: 0.82rem;
         }
       }
       @media (max-width: 768px) {
         h2 {
-          font-size: 1.25rem;
-          
+          font-size: 1.2rem;
         }
-        p {
-          font-size: 1rem;
-          line-height: 1.1rem;
-          letter-spacing: 0.03rem;
+        h3 {
+          font-size: 0.95rem;
         }
       }
       @media (max-width: 540px) {
         h2 {
-          font-size: 1rem;
+          font-size: 1.05rem;
         }
-        p {
-          font-size: 0.9rem;
-          line-height: 1rem;
-        }
-      }
-      @media (max-width: 414px) {
-        h2 {
+        h3 {
           font-size: 0.85rem;
         }
-        p {
-          font-size: 0.80rem;
-          line-height: 0.80rem;
-        }
-      @media (max-width: 380px) {
+      }
+      @media (max-width: 480px) {
         h2 {
+          font-size: 1rem;
+        }
+        h3 {
           font-size: 0.8rem;
         }
-        p {
-          font-size: 0.8rem;
-          line-height: 0.9rem;
+      }
+      @media (max-width: 411px) {
+        padding: 0 0.4rem;
+        h2 {
+          font-size: 1.15rem;
+          padding-top: 0.5rem;
+        }
+        h3 {
+          font-size: 0.95rem;
+          padding-bottom: 0.8rem;
+        }
+      }
+      @media (max-width: 380px) {
+        padding: 0 0.1rem;
+        h2 {
+          font-size: 1.15rem;
+          padding-top: 0.5rem;
+        }
+        h3 {
+          font-size: 0.95rem;
+          padding-bottom: 0.8rem;
         }
       }
       @media (max-width: 360px) {
         h2 {
-          font-size: 0.75rem;
+          font-size: 1.1rem;
+          padding-top: 0.3rem;
         }
-        p {
-          font-size: 0.70rem;
-          line-height: 0.75rem;
+        h3 {
+          font-size: 0.95rem;
+          padding-bottom: 0.7rem;
         }
       }
       @media (max-width: 320px) {
         h2 {
-          font-size: 0.75rem;
+          font-size: 1rem;
+          padding-top: 0.25rem;
         }
-        p {
-          font-size: 0.75rem;
-          line-height: 0.75rem;
+        h3 {
+          font-size: 0.9rem;
+          padding-bottom: 0.6rem;
         }
       }
       @media (max-width: 280px) {
         h2 {
-          font-size: 0.6rem;
+          font-size: 0.9rem;
+          padding-top: 0.25rem;
         }
-        p {
-          font-size: 0.6rem;
-          line-height: 0.9rem;
+        h3 {
+          font-size: 0.75rem;
+          padding-bottom: 0.6rem;
         }
       }
     }
@@ -175,46 +201,9 @@ const Wrapper = styled.div`
 `;
 
 const PostCard = props => {
-  const { title, imgUrl, content } = props;
+  const { title, subtitle, imgUrl, content } = props;
 
-  /******************************** */
-  /* get the window width at page load */
-  const [winWidth, setWinWidth] = useState(5);
-  console.log(winWidth);
-  /******************************** */
-  /* responsive substring value based on window's width */
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      let win = window.innerWidth;
-      win >= 1600
-        ? setWinWidth(700)
-        : win >= 1440
-        ? setWinWidth(520)
-        : win >= 1360
-        ? setWinWidth(520)
-        : win >= 1280
-        ? setWinWidth(400)
-        : win >= 1024
-        ? setWinWidth(240)
-        : win >= 768
-        ? setWinWidth(260)
-        : win >= 540
-        ? setWinWidth(120)
-        : win >= 411
-        ? setWinWidth(95)
-        : win >= 375
-        ? setWinWidth(70)
-        : win >= 360
-        ? setWinWidth(85)
-        : win >= 320
-        ? setWinWidth(65)
-        : setWinWidth(15);
-    }
-  }, []);
-  /******************************** */
-
-  const subheading = content[0].children[0].text;
-  const firstParagraph = content[1].children[0].text.substring(0, winWidth);
+  const postContent = content[0].children[0].text;
   return (
     <Wrapper>
       <div className="postWrap">
@@ -227,10 +216,10 @@ const PostCard = props => {
             className={"image"}
           />
         </div>
-        <section>
+        <section className="textWrap">
           <h2>{title}</h2>
-          {/* <h3>{subheading}</h3> */}
-          <p>{firstParagraph}..</p>
+          <h3>{subtitle}</h3>
+          {/* <p>{postContent}..</p> */}
         </section>
       </div>
     </Wrapper>
