@@ -2,18 +2,89 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
-  background-color: #0c233a;
-  letter-spacing: 0.05rem;
+  font-family: "Poppins", sans-serif;
+  background-color: #f2f6fa;
+  /* letter-spacing: 0.02rem; */
 }
 
 a {
-  color: inherit;
+  color: #d8e1ed;
   text-decoration: none;
+  font-weight: 500;
 }
 
 * {
   box-sizing: border-box;
+}
 
-  color: #b9cadf;
+/* ----------------------- */
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  border-radius: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.hvr-sweep-to-right:before {
+  border-radius: 8px;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #aac9f2;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+/* .hvr-sweep-to-right:hover,
+.hvr-sweep-to-right:focus,
+.hvr-sweep-to-right:active {
+  color: #d8e1ed;
+} */
+.hvr-sweep-to-right:hover:before,
+.hvr-sweep-to-right:focus:before,
+.hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* ----------------------- */
+.colors {
+  /* --------------   */
+  background-color: #202e40;
+  background-color: #1f2833;
+  background-color: #213752;
+  background-color: #254b7a;
+  background-color: #125ab3; /* -- */
+  background-color: #3987e5; /* NAV color */
+  background-color: #80b9ff;
+  background-color: #99c7ff;
+  background-color: #aac9f2; /* :hover */
+  background-color: #8faacc;
+  background-color: #acc6e5; /* h3  / p  */
+  background-color: #d8e1ed; /* logo light + TITLEs */
+  background-color: #f2f6fa; /* back  */
+  /* --------------   */
+  background-color: #29a674; /* button  */
+  background-color: #26c485;
+  background-color: #c07322;
+  background-color: #d58936;
 }

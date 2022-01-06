@@ -11,54 +11,6 @@ const Wrapper = styled.div`
   }
 
   /* ----------------------- */
-  /* Sweep To Right */
-  .hvr-sweep-to-right {
-    border-radius: 8px;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    cursor: pointer;
-  }
-  .hvr-sweep-to-right:before {
-    border-radius: 8px;
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #103b61;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: 0 50%;
-    transform-origin: 0 50%;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-  }
-  .hvr-sweep-to-right:hover,
-  .hvr-sweep-to-right:focus,
-  .hvr-sweep-to-right:active {
-    color: white;
-  }
-  .hvr-sweep-to-right:hover:before,
-  .hvr-sweep-to-right:focus:before,
-  .hvr-sweep-to-right:active:before {
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
-
   /* ----------------------- */
 
   .postWrap {
@@ -66,18 +18,11 @@ const Wrapper = styled.div`
     margin-bottom: 2%;
     padding: 1%;
     border-radius: 8px;
+    background-color: #d8e1ed;
     @media (min-width: 411px) {
       align-items: center;
     }
 
-    /* :hover {
-      background-color: #103b61;
-      cursor: pointer;
-    }*/
-    /* :active {
-      background-color: #266dad;
-      cursor: pointer;
-    } */
     @media (max-width: 414px) {
       flex-direction: column;
     }
@@ -109,16 +54,16 @@ const Wrapper = styled.div`
       }
     }
     h2 {
-      color: #8abeff;
+      color: #213752;
     }
     h2,
     h3 {
+      color: #254b7a;
       font-weight: 400;
     }
 
     section {
       flex: 3;
-      /* background-color: teal; */
 
       @media (min-width: 768px) {
         flex: 4;
