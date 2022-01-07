@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/Link";
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -23,6 +24,9 @@ const StyledHomePage = styled.div`
       margin: 0.4rem 0;
       padding: 0 2.5rem;
       /* line-height: 1.5rem; */
+      a {
+        color: #3987e5;
+      }
     }
   }
   .imageFrame {
@@ -88,7 +92,7 @@ const HomePage = () => {
         </p>
         <p>
           TALK to Lisko.. my assistent down right. Or just send me a message via
-          the contact page.
+          the <Link href="/contact">contact page.</Link>
         </p>
         <p>
           And if you are just curious.. feel free to look around and don’t
@@ -109,17 +113,12 @@ const HomePage = () => {
             src="/old-dog.jpg"
             height={228}
             width={342}
-            // height={200}
-            // width={300}
             alt="blog-post-preview-image"
           />
         </div>
         <div className="imgWrapper3">
           <Image
-            // style={{ borderRadius: 50 }}
             src="/pinocchio.jpg"
-            // height={300}
-            // width={300}
             height={228}
             width={342}
             alt="blog-post-preview-image"
