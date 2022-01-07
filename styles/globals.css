@@ -73,6 +73,8 @@ a {
   background-color: #1f2833;
   background-color: #213752;
   background-color: #254b7a;
+  background-color: #335580; /* DARK font */
+  background-color: #5b718c; /* lighter font */
   background-color: #125ab3; /* -- */
   background-color: #3987e5; /* NAV color */
   background-color: #80b9ff;
@@ -81,7 +83,9 @@ a {
   background-color: #8faacc;
   background-color: #acc6e5; /* h3  / p  */
   background-color: #d8e1ed; /* logo light + TITLEs */
-  background-color: #f2f6fa; /* back  */
+
+  background-color: #e1e5eb; /* darker back */
+  background-color: #f2f6fa; /* light back  */
   /* --------------   */
   background-color: #29a674; /* button  */
   background-color: #26c485;
