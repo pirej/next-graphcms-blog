@@ -13,14 +13,15 @@ const StyledHomePage = styled.div`
     border-radius: 8px;
     height: 40vh;
     padding: 0.7rem;
+    color: #5b718c;
 
-    h1,
-    p {
-      color: #5b718c;
+    h1 {
       padding: 0 2.5rem;
+      /* text-align: center; */
     }
     p {
       margin: 0.4rem 0;
+      padding: 0 2.5rem;
       /* line-height: 1.5rem; */
     }
   }
@@ -31,34 +32,56 @@ const StyledHomePage = styled.div`
     position: relative;
     /* justify-content: center; */
     .imgWrapper1 {
+      display: inline-flex;
+      border-radius: 8px;
+      /* border: solid 8px #e1e5eb; */
+      border: solid 8px #aac9f2;
+      span > img {
+        border-radius: 2px;
+      }
       z-index: 3;
       position: absolute;
-      left: 25%;
-      top: 5%;
-      transform: rotate(3deg);
+      left: 24%;
+      top: 8%;
+      transform: rotate(4deg);
     }
     .imgWrapper2 {
+      display: inline-flex;
+      border-radius: 8px;
+      /* border: solid 8px #e1e5eb; */
+      border: solid 8px #aac9f2;
+      span > img {
+        border-radius: 2px;
+      }
       z-index: 2;
       position: absolute;
-      left: 10%;
+      left: 12%;
       top: 13%;
-      transform: rotate(-10deg);
+      transform: rotate(-12deg);
     }
     .imgWrapper3 {
+      display: inline-flex;
+      border-radius: 8px;
+      /* border: solid 8px #e1e5eb; */
+      border: solid 8px #aac9f2;
+      span > img {
+        border-radius: 2px;
+      }
       z-index: 5;
       position: absolute;
       left: 35%;
-      top: 35%;
-      transform: rotate(10deg);
+      top: 28%;
+      transform: rotate(12deg);
     }
   }
 `;
 
 const HomePage = () => {
+  const imageStyle = { color: "red" };
   return (
     <StyledHomePage>
       <div className="textFrame">
-        <h1>Welcome to the club</h1>
+        <h1 style={{ imageStyle }}>Welcome to the club</h1>
         <p>
           Hey there, if you need a usefull bot, personal web site, effective
           landing page, blog or something in between..
@@ -76,25 +99,31 @@ const HomePage = () => {
         <div className="imgWrapper1">
           <Image
             src="/lemon-man.jpg"
-            height={200}
-            width={300}
+            height={228}
+            width={342}
             alt="blog-post-preview-image"
           />
         </div>
         <div className="imgWrapper2">
           <Image
             src="/old-dog.jpg"
-            height={200}
-            width={300}
+            height={228}
+            width={342}
+            // height={200}
+            // width={300}
             alt="blog-post-preview-image"
           />
         </div>
         <div className="imgWrapper3">
           <Image
+            // style={{ borderRadius: 50 }}
             src="/pinocchio.jpg"
-            height={200}
-            width={300}
+            // height={300}
+            // width={300}
+            height={228}
+            width={342}
             alt="blog-post-preview-image"
+            className="image3"
           />
         </div>
       </div>
