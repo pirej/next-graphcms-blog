@@ -47,13 +47,14 @@ const blog = ({ posts }) => {
   return (
     <PostStyle>
       <div className="mainPostSection">
-        {posts.map(({ id, title, subtitle, postContent, images }) => (
+        {posts.map(({ id, title, subtitle, postContent, images, slug }) => (
           <PostCard
             key={id}
             title={title}
             subtitle={subtitle}
             imgUrl={images[0].url}
             content={postContent.raw.children}
+            slug={slug}
           />
         ))}
       </div>
@@ -67,7 +68,7 @@ import { gql } from "graphql-request";
 
 const QUERY = gql`
   {
-    posts {
+    posts(orderBy: createdAt_DESC) {
       id
       images {
         id

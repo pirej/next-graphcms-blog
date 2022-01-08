@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Wrapper = styled.div`
   width: 49%;
@@ -198,27 +199,35 @@ const Wrapper = styled.div`
 `;
 
 const PostCard = props => {
-  const { title, subtitle, imgUrl, content } = props;
+  const { title, subtitle, imgUrl, content, slug } = props;
 
   const postContent = content[0].children[0].text;
+
+  // function handleClick(e, slug) {
+  //   e.preventDefault();
+  //   // console.log(`/blog/${slug}`);
+  //   <Link href={`/blog/${slug}`} />;
+  // }
   return (
     <Wrapper>
-      <div className="postWrap hvr-sweep-to-right">
-        <div className="imgWrapper">
-          <Image
-            src={imgUrl}
-            height={200}
-            width={300}
-            alt="blog-post"
-            className={"image"}
-          />
+      <Link href={`/blog/${slug}`} passHref>
+        <div className="postWrap hvr-sweep-to-right">
+          <div className="imgWrapper">
+            <Image
+              src={imgUrl}
+              height={200}
+              width={300}
+              alt="blog-post"
+              className={"image"}
+            />
+          </div>
+          <section className="textWrap">
+            <h2>{title}</h2>
+            <h3>{subtitle}</h3>
+            {/* <p>{postContent}..</p> */}
+          </section>
         </div>
-        <section className="textWrap">
-          <h2>{title}</h2>
-          <h3>{subtitle}</h3>
-          {/* <p>{postContent}..</p> */}
-        </section>
-      </div>
+      </Link>
     </Wrapper>
   );
 };
