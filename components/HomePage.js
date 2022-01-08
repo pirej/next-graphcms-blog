@@ -16,6 +16,7 @@ const StyledHomePage = styled.div`
     height: 40vh;
     padding: 0 0.7rem;
     color: #5b718c;
+    text-align: center;
 
     h2 {
       padding: 0 2.5rem;
@@ -39,7 +40,6 @@ const StyledHomePage = styled.div`
     align-items: center;
 
     h2 {
-      text-align: center;
       font-size: 2rem;
       color: #5b718c;
       margin-bottom: 1.5rem;
@@ -92,7 +92,7 @@ const HomePage = () => {
         </p>
         <p>
           Also you can check my
-          <Link href="/blog"> blog</Link> to see what im up to.
+          <Link href="/blog"> blog</Link> to see what im up to lately.
         </p>
         <p>
           Or if you are just curious, have some fun TALKING to Lisko.. my
