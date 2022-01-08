@@ -203,14 +203,10 @@ const PostCard = props => {
 
   const postContent = content[0].children[0].text;
 
-  // function handleClick(e, slug) {
-  //   e.preventDefault();
-  //   // console.log(`/blog/${slug}`);
-  //   <Link href={`/blog/${slug}`} />;
-  // }
   return (
     <Wrapper>
-      <Link href={`/blog/${slug}`} passHref>
+      <div>
+        {/* <Link href={`/blog/${slug}`} passHref> */}
         <div className="postWrap hvr-sweep-to-right">
           <div className="imgWrapper">
             <Image
@@ -227,7 +223,7 @@ const PostCard = props => {
             {/* <p>{postContent}..</p> */}
           </section>
         </div>
-      </Link>
+      </div>
     </Wrapper>
   );
 };
