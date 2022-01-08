@@ -47,13 +47,14 @@ const StyledHomePage = styled.div`
         cursor: pointer;
         transform: rotate(0);
         transform: scale(1.1);
-        /**** */
+        /****************************************************/
         -webkit-transition-property: transform;
         transition-property: transform;
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
+        -webkit-transition-duration: 0.35s;
+        transition-duration: 0.35s;
         -webkit-transition-timing-function: ease-out;
         transition-timing-function: ease-out;
+        /****************************************************/
       }
     }
     .imgWrapper1 {

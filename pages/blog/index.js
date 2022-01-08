@@ -82,6 +82,7 @@ const QUERY = gql`
       slug
       ratings
       updatedAt
+      createdAt
       authoredBy {
         ... on Author {
           id
