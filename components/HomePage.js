@@ -10,7 +10,7 @@ const StyledHomePage = styled.div`
 
   .textFrame {
     flex: 1;
-    background-color: #e1e5eb;
+    background-color: #d8e1ed;
     border-radius: 8px;
     height: 40vh;
     padding: 0.7rem;
@@ -37,10 +37,23 @@ const StyledHomePage = styled.div`
     .imgWrapper3 {
       display: inline-flex;
       border-radius: 8px;
-      /* border: solid 8px #e1e5eb; */
-      border: solid 8px #aac9f2;
+      border: solid 8px #d8e1ed;
       span > img {
-        border-radius: 2px;
+        border-radius: 1px;
+      }
+      :hover {
+        z-index: 10;
+        border: solid 8px #aac9f2;
+        cursor: pointer;
+        transform: rotate(0);
+        transform: scale(1.1);
+        /**** */
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
       }
     }
     .imgWrapper1 {
@@ -75,15 +88,16 @@ const HomePage = () => {
         <h1 style={{ imageStyle }}>Welcome to the club</h1>
         <p>
           Hey there, if you need a usefull bot, personal web site, effective
-          landing page, blog or something in between..
+          landing page, blog or something in between.. send me a message via the{" "}
+          <Link href="/contact">contact page.</Link>
         </p>
         <p>
-          TALK to Lisko.. my assistent down right. Or just send me a message via
-          the <Link href="/contact">contact page.</Link>
+          And if you are just curious, have some fun TALKING to Lisko.. my
+          assistent down right.
         </p>
         <p>
-          And if you are just curious.. feel free to look around and don’t
-          forget to check my blog too.
+          Also you can check my
+          <Link href="/blog"> latest blog posts.</Link>
         </p>
       </div>
       <div className="imageFrame">
