@@ -43,7 +43,7 @@ const Navigation = styled.header`
         li {
           list-style: none;
           a {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             padding-left: 3rem;
             @media (max-width: 480px) {
               padding-left: 2rem;

@@ -18,12 +18,10 @@ const StyledHomePage = styled.div`
 
     h1 {
       padding: 0 2.5rem;
-      /* text-align: center; */
     }
     p {
       margin: 0.4rem 0;
       padding: 0 2.5rem;
-      /* line-height: 1.5rem; */
       a {
         color: #3987e5;
       }
@@ -32,37 +30,10 @@ const StyledHomePage = styled.div`
   .imageFrame {
     display: flex;
     flex: 1;
-    /* background-color: teal; */
     position: relative;
-    /* justify-content: center; */
-    .imgWrapper1 {
-      display: inline-flex;
-      border-radius: 8px;
-      /* border: solid 8px #e1e5eb; */
-      border: solid 8px #aac9f2;
-      span > img {
-        border-radius: 2px;
-      }
-      z-index: 3;
-      position: absolute;
-      left: 24%;
-      top: 8%;
-      transform: rotate(4deg);
-    }
-    .imgWrapper2 {
-      display: inline-flex;
-      border-radius: 8px;
-      /* border: solid 8px #e1e5eb; */
-      border: solid 8px #aac9f2;
-      span > img {
-        border-radius: 2px;
-      }
-      z-index: 2;
-      position: absolute;
-      left: 12%;
-      top: 13%;
-      transform: rotate(-12deg);
-    }
+
+    .imgWrapper1,
+    .imgWrapper2,
     .imgWrapper3 {
       display: inline-flex;
       border-radius: 8px;
@@ -71,6 +42,22 @@ const StyledHomePage = styled.div`
       span > img {
         border-radius: 2px;
       }
+    }
+    .imgWrapper1 {
+      z-index: 3;
+      position: absolute;
+      left: 24%;
+      top: 8%;
+      transform: rotate(4deg);
+    }
+    .imgWrapper2 {
+      z-index: 2;
+      position: absolute;
+      left: 12%;
+      top: 13%;
+      transform: rotate(-12deg);
+    }
+    .imgWrapper3 {
       z-index: 5;
       position: absolute;
       left: 35%;
