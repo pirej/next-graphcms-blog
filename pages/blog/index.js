@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { usePostContext } from "../../context/postContext";
 import { GraphQLClient } from "graphql-request";
 import PostCard from "../../components/PostCard";
 import styled from "styled-components";
@@ -43,7 +45,15 @@ const PostStyle = styled.section`
   }
 `;
 
-const blog = ({ posts }) => {
+const Blog = ({ posts }) => {
+  const { data, setData } = usePostContext();
+  console.log(data);
+
+  // useEffect(() => {
+  //   return setData(posts);
+  //   //eslint-disable-next-line
+  // }, [posts]);
+
   return (
     <PostStyle>
       <div className="mainPostSection">
@@ -62,7 +72,7 @@ const blog = ({ posts }) => {
   );
 };
 
-export default blog;
+export default Blog;
 
 import { gql } from "graphql-request";
 
