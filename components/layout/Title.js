@@ -34,6 +34,52 @@ const TitleStyle = styled.div`
     margin: 0;
     padding-bottom: 3.5rem;
   }
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 0.9rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 0.85rem;
+    }
+  }
+  @media (max-width: 540px) {
+    h3 {
+      font-size: 0.8rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 0.75rem;
+    }
+  }
+  @media (max-width: 414px) {
+    h3 {
+      padding-top: 0.5rem;
+      font-size: 0.75rem;
+    }
+    h1 {
+      font-size: 1.9rem;
+    }
+    p {
+      font-size: 0.7rem;
+    }
+  }
+  @media (max-width: 320px) {
+    h3 {
+      font-size: 0.7rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.6rem;
+      letter-spacing: 0.3rem;
+    }
+  }
 `;
 
 const Title = () => {

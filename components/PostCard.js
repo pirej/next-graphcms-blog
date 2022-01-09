@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     margin-bottom: 2%;
     padding: 1%;
     border-radius: 8px;
-    background-color: #d8e1ed;
+    /* background-color: #d8e1ed; */
     @media (min-width: 411px) {
       align-items: center;
     }
@@ -55,12 +55,12 @@ const Wrapper = styled.div`
       }
     }
     h2 {
-      color: #213752;
+      color: #5b718c;
     }
     h2,
     h3 {
-      color: #254b7a;
-      font-weight: 400;
+      color: #5b718c;
+      font-weight: 500;
     }
 
     section {
