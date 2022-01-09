@@ -46,8 +46,8 @@ const PostStyle = styled.section`
 `;
 
 const Blog = ({ posts }) => {
-  const { data, setData } = usePostContext();
-  console.log(data);
+  // const { data, setData } = usePostContext();
+  // console.log(data);
 
   // useEffect(() => {
   //   return setData(posts);
