@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 import HomePage from "../components/HomePage";
-import { PostContext } from "../context/postContext";
+import { usePosts } from "../hooks/usePosts";
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1.graphcms.com/v2/ckxqxp5pl0pty01z1hfufbw6n/master",
@@ -16,7 +16,7 @@ const graphcms = new GraphQLClient(
 );
 
 export default function Home({ posts }) {
-  const { color } = useContext(PostContext);
+  const { color } = usePosts();
   console.log("the context color is ", color);
 
   ///********************************* */
