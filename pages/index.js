@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 import HomePage from "../components/HomePage";
-import { usePostContext } from "../context/postContext";
+import { PostContext } from "../context/postContext";
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1.graphcms.com/v2/ckxqxp5pl0pty01z1hfufbw6n/master",
@@ -16,15 +16,20 @@ const graphcms = new GraphQLClient(
 );
 
 export default function Home({ posts }) {
-  const [blogPosts, setBlogPosts] = useState();
+  const { color } = useContext(PostContext);
+  console.log("the context color is ", color);
 
-  useEffect(() => {
-    posts && setBlogPosts(posts);
+  ///********************************* */
+  // const [blogPosts, setBlogPosts] = usePostContext([""]);
 
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   posts && setBlogPosts(posts);
 
-  console.log("stejtot e", blogPosts);
+  //   // eslint-disable-next-line
+  // }, []);
+
+  // console.log("stejtot e", blogPosts);
+  ///********************************* */
 
   return (
     <div>
