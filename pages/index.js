@@ -16,7 +16,6 @@ const graphcms = new GraphQLClient(
 );
 
 export default function Home({ posts }) {
-  const { color, changeColor } = usePosts();
   const { blogData, getBlogData } = usePosts();
 
   /*  send the fetched data to the context/reducer  */
@@ -30,12 +29,6 @@ export default function Home({ posts }) {
 
   return (
     <div>
-      <button
-        style={{ backgroundColor: color, color: "white" }}
-        onClick={() => changeColor("pink")}
-      >
-        Changed color in to {color}
-      </button>
       <HomePage
         url={posts[0].images[0].url}
         imgName={posts[0].images[0].fileName}
