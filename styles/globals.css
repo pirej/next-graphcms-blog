@@ -42,8 +42,8 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #aac9f2;
-  /* background: #d8e1ed; */
+  /* background: #aac9f2; */
+  background: #d8e1ed;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;

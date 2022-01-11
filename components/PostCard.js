@@ -15,6 +15,15 @@ const Wrapper = styled.div`
   /* ----------------------- */
 
   .postWrap {
+    /* ---  */
+    border-radius: 8px;
+    overflow: visible !important;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1),
+      0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1),
+      0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    /* ---  */
     display: flex;
     margin-bottom: 2%;
     padding: 1%;

@@ -46,16 +46,28 @@ const StyledHomePage = styled.div`
       }
       flex-direction: column;
       align-items: center;
+
       
       .imgWrapper {
-          :hover{
+        opacity: 0.85;
+        border-radius: 8px;
+
+        :hover{
         cursor: pointer;
-        filter: brightness(1.1) saturate(120%);
-      }
-      
+        opacity: 1;
+        }
+
+        > span {
+          border-radius: 8px;
+          overflow: visible !important;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
         span > img {
           border-radius: 8px;
-         }
+        }
       }
     }
 
