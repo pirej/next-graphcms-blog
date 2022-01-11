@@ -1,19 +1,34 @@
-import { useContext, useState, createContext } from "react";
+import { createContext, useReducer } from "react";
 
 export const PostContext = createContext();
 
-// export const usePostContext = () => useContext(PostContext);
+const postReducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE_COLOR":
+      return { ...state, color: action.payload };
+    case "GET_BLOG_DATA":
+      return { ...state, blogData: action.payload };
+    default:
+      return state;
+  }
+};
 
 export const PostProvider = ({ children }) => {
-  // const [state, setState] = useState({});
+  const [state, dispatch] = useReducer(postReducer, {
+    color: "blue",
+    blogData: {},
+  });
 
-  // const contextValues = {
-  //   ...state,
-  //   setBlogPosts: blogPosts => setState({ ...state, blogPosts }),
-  //};
+  const changeColor = color => {
+    dispatch({ type: "CHANGE_COLOR", payload: color });
+  };
+
+  const getBlogData = blogData => {
+    dispatch({ type: "GET_BLOG_DATA", payload: blogData });
+  };
 
   return (
-    <PostContext.Provider value={{ color: "blue" }}>
+    <PostContext.Provider value={{ ...state, changeColor, getBlogData }}>
       {children}
     </PostContext.Provider>
   );

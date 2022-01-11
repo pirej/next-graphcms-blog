@@ -80,7 +80,8 @@ const StyledHomePage = styled.div`
   }
 `;
 
-const HomePage = () => {
+const HomePage = props => {
+  const { url, imgName, title, subtitle } = props;
   return (
     <StyledHomePage>
       <div className="textFrame">

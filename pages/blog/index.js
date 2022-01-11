@@ -46,14 +46,6 @@ const PostStyle = styled.section`
 `;
 
 const Blog = ({ posts }) => {
-  // const { data, setData } = usePostContext();
-  // console.log(data);
-
-  // useEffect(() => {
-  //   return setData(posts);
-  //   //eslint-disable-next-line
-  // }, [posts]);
-
   return (
     <PostStyle>
       <div className="mainPostSection">

@@ -16,24 +16,32 @@ const graphcms = new GraphQLClient(
 );
 
 export default function Home({ posts }) {
-  const { color } = usePosts();
-  console.log("the context color is ", color);
+  const { color, changeColor } = usePosts();
+  const { blogData, getBlogData } = usePosts();
 
+  /*  send the fetched data to the context/reducer  */
   ///********************************* */
-  // const [blogPosts, setBlogPosts] = usePostContext([""]);
+  useEffect(() => {
+    posts && getBlogData({ posts });
 
-  // useEffect(() => {
-  //   posts && setBlogPosts(posts);
-
-  //   // eslint-disable-next-line
-  // }, []);
-
-  // console.log("stejtot e", blogPosts);
+    // eslint-disable-next-line
+  }, [posts]);
   ///********************************* */
 
   return (
     <div>
-      <HomePage />
+      <button
+        style={{ backgroundColor: color, color: "white" }}
+        onClick={() => changeColor("pink")}
+      >
+        Changed color in to {color}
+      </button>
+      <HomePage
+        url={posts[0].images[0].url}
+        imgName={posts[0].images[0].fileName}
+        title={posts[0].title}
+        subtitle={posts[0].subtitle}
+      />
     </div>
   );
 }
