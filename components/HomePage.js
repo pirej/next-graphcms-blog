@@ -8,6 +8,11 @@ const StyledHomePage = styled.div`
   display: flex;
   padding: 5% 15%;
   gap: 3rem;
+   color: #5b718c;
+    h2 {
+      padding: 0 2.5rem;
+      font-size: 1.8rem;
+    }
 
   .textFrame {
     flex: 1;
@@ -15,73 +20,51 @@ const StyledHomePage = styled.div`
     border-radius: 8px;
     height: 40vh;
     padding: 0 0.7rem;
-    color: #5b718c;
     text-align: center;
 
-    h2 {
-      padding: 0 2.5rem;
-      font-size: 2rem;
-    }
     p {
       margin: 0.4rem 0;
       padding: 0 2.5rem;
-      font-weight: 500;
+      font-weight: 400;
+      font-size: 1.1rem;
       a {
         color: #3987e5;
       }
     }
   }
-  .imageFrame {
-    /* background-color: #d8e1ed; */
-    border-radius: 8px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h2 {
-      font-size: 2rem;
-      color: #5b718c;
-      margin-bottom: 1.5rem;
-    }
-    flex: 1;
-    .imageBox {
+    /* the post/image section start */
+    .postWrap {
+      flex: 1;
+      /* background-color: #d8e1ed; */
+      border-radius: 8px;
       display: flex;
-      flex-wrap: wrap;
-      width: 70%;
-      justify-content: center;
-
-      .imgWrapper1,
-      .imgWrapper2,
-      .imgWrapper3,
-      .imgWrapper4 {
-        display: inline-flex;
-        width: 40%;
-        margin: 5px;
-
+      
+      padding: 0 0.4rem;
+      
+      @media (max-width: 1440px) {
+        flex: 0.8;
+      }
+      flex-direction: column;
+      align-items: center;
+      
+      .imgWrapper {
+          :hover{
+        cursor: pointer;
+        filter: brightness(1.1) saturate(120%);
+      }
+      
         span > img {
-          border-radius: 5px;
-        }
-        :hover {
-          /* border: solid 5px #aac9f2; */
-          z-index: 50;
-          cursor: pointer;
-          transform: rotate(0);
-          transform: scale(1.1);
-          -webkit-transition-property: transform;
-          transition-property: transform;
-          -webkit-transition-duration: 0.35s;
-          transition-duration: 0.35s;
-          -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-        }
+          border-radius: 8px;
+         }
       }
     }
+
+    /* the post/image section end */
   }
 `;
 
 const HomePage = props => {
-  const { url, imgName, title, subtitle } = props;
+  const { imgUrl, imgName, title, subtitle } = props;
   return (
     <StyledHomePage>
       <div className="textFrame">
@@ -100,45 +83,25 @@ const HomePage = props => {
           assistent down right.
         </p>
       </div>
-      <div className="imageFrame">
-        <h2>My latest posts</h2>
-        <div className="imageBox">
-          <div className="imgWrapper1">
+      <Link href={`/blog`} passHref>
+        <div className="postWrap ">
+          <section className="textWrap">
+            {/* <h2>{title}</h2> */}
+            <h2>Latest Posts</h2>
+          </section>
+          <div className="imgWrapper">
             <Image
-              src="/lemon-man.jpg"
-              height={120}
-              width={180}
-              alt="blog-post-preview-image"
-            />
-          </div>
-          <div className="imgWrapper2">
-            <Image
-              src="/old-dog.jpg"
-              height={120}
-              width={180}
-              alt="blog-post-preview-image"
-            />
-          </div>
-          <div className="imgWrapper3">
-            <Image
-              src="/pinocchio.jpg"
-              height={120}
-              width={180}
-              alt="blog-post-preview-image"
-              className="image3"
-            />
-          </div>
-          <div className="imgWrapper4">
-            <Image
-              src="/stop.jpg"
-              height={120}
-              width={180}
-              alt="blog-post-preview-image"
-              className="image4"
+              src={imgUrl}
+              height={240}
+              width={360}
+              // height={267}
+              // width={400}
+              alt="blog-post"
+              className={"image"}
             />
           </div>
         </div>
-      </div>
+      </Link>
     </StyledHomePage>
   );
 };

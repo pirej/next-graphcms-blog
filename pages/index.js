@@ -30,7 +30,7 @@ export default function Home({ posts }) {
   return (
     <div>
       <HomePage
-        url={posts[0].images[0].url}
+        imgUrl={posts[0].images[0].url}
         imgName={posts[0].images[0].fileName}
         title={posts[0].title}
         subtitle={posts[0].subtitle}
