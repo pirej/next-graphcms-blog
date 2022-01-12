@@ -215,23 +215,24 @@ const PostCard = props => {
   return (
     <Wrapper>
       <div>
-        {/* <Link href={`/blog/${slug}`} passHref> */}
-        <div className="postWrap hvr-sweep-to-right">
-          <div className="imgWrapper">
-            <Image
-              src={imgUrl}
-              height={200}
-              width={300}
-              alt="blog-post"
-              className={"image"}
-            />
+        <Link href={`/blog/${slug}`} passHref>
+          <div className="postWrap hvr-sweep-to-right">
+            <div className="imgWrapper">
+              <Image
+                src={imgUrl}
+                height={200}
+                width={300}
+                alt="blog-post"
+                className={"image"}
+              />
+            </div>
+            <section className="textWrap">
+              <h2>{title}</h2>
+              <h3>{subtitle}</h3>
+              {/* <p>{postContent}..</p> */}
+            </section>
           </div>
-          <section className="textWrap">
-            <h2>{title}</h2>
-            <h3>{subtitle}</h3>
-            {/* <p>{postContent}..</p> */}
-          </section>
-        </div>
+        </Link>
       </div>
     </Wrapper>
   );
