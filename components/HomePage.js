@@ -23,10 +23,11 @@ const StyledHomePage = styled.div`
     text-align: center;
 
     p {
-      margin: 0.4rem 0;
+      margin: -0.4rem 0 0.6rem 0;
       padding: 0 2.5rem;
       font-weight: 400;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      /* line-height: 140%; */
       a {
         color: #3987e5;
       }
