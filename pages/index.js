@@ -29,43 +29,18 @@ export default function Home({ posts }) {
 
   return (
     <div>
-      <HomePage
-        imgUrl={posts[0].images[0].url}
-        imgName={posts[0].images[0].fileName}
-        title={posts[0].title}
-        subtitle={posts[0].subtitle}
-      />
+      <HomePage imgUrl={posts[0].images[0].url} />
     </div>
   );
 }
 
 const QUERY = gql`
   {
-    posts(orderBy: createdAt_DESC) {
-      id
+    posts(last: 1) {
       images {
-        id
-        fileName
         url
       }
-      postContent {
-        raw
-      }
       title
-      subtitle
-      slug
-      ratings
-      updatedAt
-      createdAt
-      authoredBy {
-        ... on Author {
-          id
-          author
-          avatar {
-            id
-          }
-        }
-      }
     }
   }
 `;
