@@ -1,4 +1,30 @@
 import { gql, GraphQLClient } from "graphql-request";
+import { RichText } from "@graphcms/rich-text-react-renderer";
+import Image from "next/image";
+import styled from "styled-components";
+
+const StyledPost = styled.div`
+  section {
+    /* background-color: teal; */
+  }
+`;
+
+function PostDetailPage({ post }) {
+  const mainContent = post.postContent.raw.children;
+  const imgUrl = post.images[0].url;
+  const altImg = post.images[0].fileName;
+
+  return (
+    <StyledPost>
+      <section>
+        <Image src={imgUrl} alt={altImg} width={640} height={427} />
+        <h1>Title is {post.title}</h1>
+        <h3>Subtitle is {post.subtitle}</h3>
+        <RichText content={mainContent} />
+      </section>
+    </StyledPost>
+  );
+}
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1.graphcms.com/v2/ckxqxp5pl0pty01z1hfufbw6n/master",
@@ -8,19 +34,6 @@ const graphcms = new GraphQLClient(
     },
   }
 );
-
-function PostDetailPage({ post }) {
-  // console.log("post props logg....", post);
-
-  return (
-    <div>
-      <h1>The slug is: {post.slug}</h1>
-      <h3>Title is {post.title}</h3>
-      <h3>Subtitle is {post.subtitle}</h3>
-      <h3>Post ID is {post.id}</h3>
-    </div>
-  );
-}
 
 // get the paths for all posts
 export async function getStaticPaths() {
