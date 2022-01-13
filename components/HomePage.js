@@ -4,14 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 const StyledHomePage = styled.div`
-  /* background-color: teal; */
   display: flex;
   padding: 5% 15%;
   gap: 3rem;
    color: #5b718c;
     h2 {
       padding: 0 2.5rem;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
   .textFrame {
@@ -23,15 +22,17 @@ const StyledHomePage = styled.div`
     text-align: center;
 
     p {
-      margin: -0.4rem 0 0.6rem 0;
+      margin: 0rem 0 0.6rem 0;
       padding: 0 2.5rem;
-      font-weight: 400;
-      font-size: 1.15rem;
-      /* line-height: 140%; */
+      font-weight: 500;
+      font-size: 1.05rem;
       a {
         color: #3987e5;
       }
     }
+     .noMargin {
+        margin-top: -0.3rem;
+      }
   }
     /* the post/image section start */
     .postWrap {
@@ -82,7 +83,7 @@ const HomePage = props => {
     <StyledHomePage>
       <div className="textFrame">
         <h2>Welcome to the club</h2>
-        <p>
+        <p className="noMargin">
           Hey there, if you need a usefull bot, personal web site, effective
           landing page, blog or something in between.. send me a message via the{" "}
           <Link href="/contact">contact page.</Link>
