@@ -7,22 +7,29 @@ const StyledContact = styled.section`
   .formWrap {
     width: 25vw;
     .theForm {
+      background-color: #d8e1ed;
       margin-top: 2rem;
-      padding: 0 3rem;
+      padding: 0 9%;
+      /* padding: 0 3rem; */
       border-radius: 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
       border-radius: 5px;
+      border: solid thin #b8c7d9;
 
       label {
         display: block;
         margin-bottom: 0.2em;
-        padding: 0 1rem;
+        /* padding: 0 1rem; */
         color: #5b718c;
       }
       p {
         width: 100%;
+        margin-bottom: 0;
+        :last-child {
+          margin-bottom: 1.5rem;
+        }
 
         input:-webkit-autofill,
         input:-webkit-autofill:hover,
@@ -42,7 +49,6 @@ const StyledContact = styled.section`
           width: 100%;
           height: 2rem;
           border-radius: 5px;
-          background-color: #d8e1ed;
           border: solid thin #b8c7d9;
           font-size: 1rem;
           letter-spacing: 0.04rem;
@@ -59,7 +65,6 @@ const StyledContact = styled.section`
         textarea {
           /* background-color: #d8e1ed; */
           color: #335580;
-          background-color: #d8e1ed;
           width: 100%;
           border-radius: 5px;
           border: solid thin #b8c7d9;
