@@ -19,6 +19,10 @@ const StyledContact = styled.section`
       border-radius: 5px;
       border: solid thin #b8c7d9;
 
+      span {
+        color: #fc6565;
+      }
+
       label {
         display: block;
         margin-bottom: 0.2em;
@@ -100,7 +104,12 @@ const StyledContact = styled.section`
 `;
 
 const ContactPage = () => {
-  const { register, handleSubmit, errors, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   function onSubmitForm(values) {
     console.log(values);
@@ -111,11 +120,38 @@ const ContactPage = () => {
         <form onSubmit={handleSubmit(onSubmitForm)} className="theForm">
           <p>
             <label htmlFor="name">Name</label>
-            <input type="text" {...register("name")} name="name" />
+            <input
+              type="text"
+              {...register("name", { required: true })}
+              name="name"
+            />
+            <span>
+              {errors.name?.type === "required" && "Please type your name"}
+            </span>
           </p>
           <p>
             <label htmlFor="email">Email</label>
-            <input type="email" {...register("email")} name="email" />
+            <input
+              type="email"
+              {...register("email", {
+                required: true,
+                minLength: 8,
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                },
+              })}
+              name="email"
+            />
+            <span>
+              {errors.email?.type === "minLength" && "Your email is too short"}
+            </span>
+            <span>
+              {errors.email?.type === "pattern" && "Invalid email address"}
+            </span>
+            <span>
+              {errors.email?.type === "required" && "Email is required"}
+            </span>
           </p>
           <p>
             <label htmlFor="subject">Subject</label>
@@ -125,10 +161,18 @@ const ContactPage = () => {
             <label htmlFor="message">Message</label>
             <textarea
               name="message"
-              {...register("message")}
+              {...register("message", { maxLength: 1000, minLength: 30 })}
               rows="7"
               cols="40"
             />
+            <span>
+              {errors.message?.type === "maxLength" &&
+                "Your email message should have less than 1000 characters"}
+            </span>
+            <span>
+              {errors.message?.type === "minLength" &&
+                "Your email message must be longer than this"}
+            </span>
           </p>
           <p>
             <button>Submit</button>
