@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 const StyledContact = styled.section`
   display: flex;
@@ -99,30 +100,40 @@ const StyledContact = styled.section`
 `;
 
 const ContactPage = () => {
+  const { register, handleSubmit, errors, reset } = useForm();
+
+  function onSubmitForm(values) {
+    console.log(values);
+  }
   return (
     <StyledContact>
       <div className="formWrap">
-        <div className="theForm">
+        <form onSubmit={handleSubmit(onSubmitForm)} className="theForm">
           <p>
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" />
+            <input type="text" {...register("name")} name="name" />
           </p>
           <p>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" />
+            <input type="email" {...register("email")} name="email" />
           </p>
           <p>
             <label htmlFor="subject">Subject</label>
-            <input type="text" name="subject" />
+            <input type="text" {...register("subject")} name="subject" />
           </p>
           <p>
             <label htmlFor="message">Message</label>
-            <textarea name="message" rows="7" cols="40" />
+            <textarea
+              name="message"
+              {...register("message")}
+              rows="7"
+              cols="40"
+            />
           </p>
           <p>
             <button>Submit</button>
           </p>
-        </div>
+        </form>
       </div>
     </StyledContact>
   );
