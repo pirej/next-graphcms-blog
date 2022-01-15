@@ -99,22 +99,10 @@ const StyledContact = styled.section`
 `;
 
 const ContactPage = () => {
-  //
-  async function handleOnSubmit(e) {
-    e.preventDefault();
-
-    const formData = {};
-    Array.from(e.currentTarget.elements).forEach(field => {
-      if (!field.name) return;
-      formData[field.name] = field.value;
-    });
-    // console.log(formData);
-  }
-
   return (
     <StyledContact>
       <div className="formWrap">
-        <form className="theForm" method="post" onSubmit={handleOnSubmit}>
+        <div className="theForm">
           <p>
             <label htmlFor="name">Name</label>
             <input type="text" name="name" />
@@ -134,7 +122,7 @@ const ContactPage = () => {
           <p>
             <button>Submit</button>
           </p>
-        </form>
+        </div>
       </div>
     </StyledContact>
   );
