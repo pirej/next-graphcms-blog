@@ -108,7 +108,11 @@ const ContactPage = () => {
       if (!field.name) return;
       formData[field.name] = field.value;
     });
-    // console.log(formData);
+    fetch("/api/mail", {
+      method: "post",
+      body: JSON.stringify(formData),
+    });
+    console.log(formData);
   }
 
   return (
