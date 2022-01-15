@@ -87,11 +87,12 @@ a {
   background-color: #99c7ff;
   background-color: #aac9f2; /* :hover */
   background-color: #8faacc;
+  background-color: #a3afbf; /* form border  */
   background-color: #acc6e5; /* h3  / p  */
-  background-color: #d8e1ed; /* logo light + TITLEs */
+  background-color: #d8e1ed; /* FONT - logo light + TITLEs */
 
   background-color: #e1e5eb; /* darker back */
-  background-color: #f2f6fa; /* light back  */
+  background-color: #f2f6fa; /* background  */
   /* --------------   */
   background-color: #29a674; /* button  */
   background-color: #26c485;
