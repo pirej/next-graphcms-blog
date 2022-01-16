@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 const StyledContact = styled.section`
   display: flex;
@@ -113,8 +112,6 @@ const ContactPage = () => {
     reset,
   } = useForm();
 
-  const router = useRouter();
-
   async function onSubmitForm(values) {
     let config = {
       method: "post",
@@ -127,11 +124,8 @@ const ContactPage = () => {
 
     try {
       const response = await axios(config);
-      // console.log(response);
-      if (response.status === 200) {
-        // console.log("Success, treba reset...");
-        reset();
-        // router.push("/");
+      if (response.data.status == 200) {
+        console.log("Success");
       }
     } catch (err) {
       console.error(err);
