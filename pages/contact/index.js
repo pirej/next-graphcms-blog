@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const StyledContact = styled.section`
   display: flex;
@@ -111,9 +112,26 @@ const ContactPage = () => {
     reset,
   } = useForm();
 
-  function onSubmitForm(values) {
-    console.log(values);
+  async function onSubmitForm(values) {
+    let config = {
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: values,
+    };
+
+    try {
+      const response = await axios(config);
+      if (response.data.status == 200) {
+        console.log("Success");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
+
   return (
     <StyledContact>
       <div className="formWrap">
