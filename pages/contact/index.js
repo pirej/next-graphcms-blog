@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const StyledContact = styled.section`
   display: flex;
@@ -18,10 +19,6 @@ const StyledContact = styled.section`
       align-items: center;
       border-radius: 5px;
       border: solid thin #b8c7d9;
-
-      span {
-        color: #fc6565;
-      }
 
       label {
         display: block;
@@ -104,75 +101,48 @@ const StyledContact = styled.section`
 `;
 
 const ContactPage = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const form = useRef();
 
-  function onSubmitForm(values) {
-    console.log(values);
-  }
+  const sendEmail = e => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_v3ppm0c",
+        "template_714rnax",
+        form.current,
+        "user_L3zOQ1wgPa76HLwa67Rlv"
+      )
+      .then(
+        result => {
+          console.log(result.text);
+        },
+        error => {
+          console.log(error.text);
+        },
+        e.target.reset()
+      );
+  };
+
   return (
     <StyledContact>
       <div className="formWrap">
-        <form onSubmit={handleSubmit(onSubmitForm)} className="theForm">
+        <form ref={form} onSubmit={sendEmail} className="theForm">
           <p>
             <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              {...register("name", { required: true })}
-              name="name"
-            />
-            <span>
-              {errors.name?.type === "required" && "Please type your name"}
-            </span>
+            <input type="text" name="name" />
           </p>
           <p>
             <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              {...register("email", {
-                required: true,
-                minLength: 8,
-                pattern: {
-                  value:
-                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                },
-              })}
-              name="email"
-            />
-            <span>
-              {errors.email?.type === "minLength" && "Your email is too short"}
-            </span>
-            <span>
-              {errors.email?.type === "pattern" && "Invalid email address"}
-            </span>
-            <span>
-              {errors.email?.type === "required" && "Email is required"}
-            </span>
+            <input type="email" name="email" />
           </p>
           <p>
             <label htmlFor="subject">Subject</label>
-            <input type="text" {...register("subject")} name="subject" />
+            <input type="text" name="subject" />
           </p>
           <p>
             <label htmlFor="message">Message</label>
-            <textarea
-              name="message"
-              {...register("message", { maxLength: 1000, minLength: 30 })}
-              rows="7"
-              cols="40"
-            />
-            <span>
-              {errors.message?.type === "maxLength" &&
-                "Your email message should have less than 1000 characters"}
-            </span>
-            <span>
-              {errors.message?.type === "minLength" &&
-                "Your email message must be longer than this"}
-            </span>
+            <textarea name="message" rows="7" cols="40" />
           </p>
           <p>
             <button>Submit</button>
