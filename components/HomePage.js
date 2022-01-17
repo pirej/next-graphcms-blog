@@ -6,26 +6,87 @@ import Link from "next/link";
 const StyledHomePage = styled.div`
   display: flex;
   padding: 5% 15%;
+  @media (max-width: 1440px) {
+    padding: 5% 12%;
+  }
+  @media (max-width: 1280px) {
+    padding: 5% 12%;
+  }
+  @media (max-width: 1024px) {
+    padding: 5% 8%;
+  }
+  @media (max-width: 768px) {
+    display: block;
+
+    padding: 5% 10%;
+  }
+  @media (max-width: 540px) {
+    display: block;
+    padding: 5% 8%;
+  }
   gap: 3rem;
-   color: #5b718c;
-    h2 {
-      padding: 0 2.5rem;
-      font-size: 2rem;
-    }
+  color: #5b718c;
+    
 
   .textFrame {
     flex: 1;
-    /* background-color: #d8e1ed; */
     border-radius: 8px;
-    height: 40vh;
     padding: 0 0.7rem;
-    text-align: center;
+    @media (max-width: 768px){
+      padding: 0;
+    }
+
+    .textWrapper{
+      margin: 0 15%;
+      @media (max-width: 1024px) {
+        padding-right: 0%;
+        h2{
+          font-size: 2.1rem;
+        }
+        p{
+          font-size: 1.04rem;
+        }
+      }
+      @media (max-width: 768px) {
+        p{
+          font-size: 1.1rem;
+        }
+      }
+      @media (max-width: 414px) {
+        h2{
+          font-size: 1.9rem;
+        }
+        p{
+          font-size: 1.04rem;
+          font-size: 0.95rem;
+        }
+      }
+      @media (max-width: 360px) {
+        h2{
+          font-size: 1.6rem;
+        }
+        p{
+          font-size: 1rem;
+        }
+      }
+      @media (max-width: 320px) {
+        h2{
+          font-size: 1.5rem;
+        }
+        p{
+          font-size: 1rem;
+        }
+      }
+    }
+    
+
+    h2 {
+      font-size: 2.15rem;
+    }
 
     p {
-      margin: 0rem 0 0.6rem 0;
-      padding: 0 2.5rem;
-      font-weight: 500;
-      font-size: 1.05rem;
+      margin: 0 0 0.6rem 0;
+      font-size: 1.1rem;
       a {
         color: #3987e5;
       }
@@ -33,15 +94,86 @@ const StyledHomePage = styled.div`
      .noMargin {
         margin-top: -0.3rem;
       }
+
+      button{
+        margin-top: 1rem;
+      }
+
+  @media (max-width: 1440px) {
+    .textWrapper{
+      margin: 0 13% 0 2%;
+    }
+  }
+  @media (max-width: 1280px) {
+    .textWrapper{
+      margin: 0 9% 0 0%;
+    }
+  }
+  @media (max-width: 1024px) {
+    button{
+        font-size: 1.04rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .textWrapper{
+      margin: 0;
+    }
+  }
+    
+
   }
     /* the post/image section start */
     .postWrap {
       flex: 1;
-      /* background-color: #d8e1ed; */
       border-radius: 8px;
       display: flex;
+       .wrapper{
+        width: 370px;
+        @media (max-width: 1440px){
+            width: 360px;
+        }
+        @media (max-width: 1024px){
+            width: 345px;
+        }
+        @media (max-width: 768px){
+            width: 614.4px;
+        }
+        @media (max-width: 540px){
+            width: 453.6px;
+        }
+        @media (max-width: 411px){
+            width: 345.2px;
+        }
+        @media (max-width: 360px){
+            width: 302.4px;
+        }
+        @media (max-width: 320px){
+            width: 268.8px;
+        }
+      }
       
-      padding: 0 0.4rem;
+
+      .textWrap{
+        h2{
+          font-size: 2.15rem;
+          @media (max-width: 1024px){
+            font-size: 2.1rem;
+          }
+          
+          @media (max-width: 411px){
+              font-size: 1.9rem;
+          }
+          
+          @media (max-width: 360px){
+              font-size: 1.6rem;
+          }
+          
+          @media (max-width: 320px){
+              font-size: 1.5rem;
+          }
+          
+        }
+      }
       
       @media (max-width: 1440px) {
         flex: 0.8;
@@ -49,7 +181,7 @@ const StyledHomePage = styled.div`
       flex-direction: column;
       align-items: center;
 
-      
+
       .imgWrapper {
         opacity: 0.85;
         border-radius: 8px;
@@ -73,6 +205,7 @@ const StyledHomePage = styled.div`
       }
     }
 
+
     /* the post/image section end */
   }
 `;
@@ -82,37 +215,41 @@ const HomePage = props => {
   return (
     <StyledHomePage>
       <div className="textFrame">
-        <h2>Welcome to the club</h2>
-        <p className="noMargin">
-          Hey there, if you need a usefull bot, personal web site, effective
-          landing page, blog or something in between.. send me a message via the{" "}
-          <Link href="/contact">contact page.</Link>
-        </p>
-        <p>
-          Also you can check my
-          <Link href="/blog"> blog</Link> to see what im up to lately.
-        </p>
-        <p>
-          Or if you are just curious, have some fun TALKING to Lisko.. my
-          assistent down right.
-        </p>
+        <div className="textWrapper">
+          <h2>Welcome to the club</h2>
+          <p className="noMargin">
+            Hey there, if you need a usefull bot, personal web site, effective
+            landing page, blog or something in between..{" "}
+            <Link href="/contact">send me a message.</Link>
+          </p>
+          <p>
+            Check my <Link href="/blog">blog</Link>
+          </p>
+          <p>
+            Or if you are just curious, have some fun TALKING to Lisko.. my
+            assistent down right.
+          </p>
+          <Link href={`/contact`} passHref>
+            <button>Contact me</button>
+          </Link>
+        </div>
       </div>
       <Link href={`/blog`} passHref>
         <div className="postWrap ">
-          <section className="textWrap">
-            {/* <h2>{title}</h2> */}
-            <h2>Latest Posts</h2>
-          </section>
-          <div className="imgWrapper">
-            <Image
-              src={imgUrl}
-              height={240}
-              width={360}
-              // height={267}
-              // width={400}
-              alt="blog-post"
-              className={"image"}
-            />
+          <div className="wrapper">
+            <section className="textWrap">
+              <h2>Latest Posts</h2>
+            </section>
+
+            <div className="imgWrapper">
+              <Image
+                src={imgUrl}
+                height={414}
+                width={620}
+                alt="blog-post"
+                className={"image"}
+              />
+            </div>
           </div>
         </div>
       </Link>

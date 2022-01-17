@@ -82,20 +82,6 @@ const StyledContact = styled.section`
           }
         }
       }
-      button {
-        color: white;
-        background-color: #24b379;
-        padding: 0.6rem 1.1rem;
-        border: solid thin #b8c7d9;
-        border-radius: 5px;
-        letter-spacing: 0.05rem;
-        font-size: 1.05rem;
-
-        :hover {
-          background-color: #14cc83;
-          cursor: pointer;
-        }
-      }
     }
   }
 `;

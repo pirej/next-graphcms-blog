@@ -95,8 +95,22 @@ a {
   background-color: #f2f6fa; /* background  */
   /* --------------   */
   background-color: #29a674; /* button  */
-  background-color: #26c485;
+  background-color: #26c485; /* button hover */
   background-color: #c07322;
   background-color: #d58936;
   color: #fc6565; /* error message color  */
+}
+
+button {
+  color: white;
+  background-color: #24b379;
+  padding: 0.6rem 1.1rem;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
+}
+button:hover {
+  background-color: #26c485;
+  cursor: pointer;
 }
