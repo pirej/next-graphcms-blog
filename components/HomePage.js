@@ -248,6 +248,7 @@ const HomePage = props => {
                 width={620}
                 alt="blog-post"
                 className={"image"}
+                priority
               />
             </div>
           </div>
