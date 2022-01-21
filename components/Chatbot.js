@@ -17,6 +17,11 @@ const StyledBotSection = styled.div`
     position: fixed;
     bottom: 50px;
     right: 1%;
+    :hover {
+      cursor: pointer;
+      filter: saturate(105%);
+      filter: brightness(110%);
+    }
   }
 `;
 
