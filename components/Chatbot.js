@@ -173,9 +173,9 @@ const Chatbot = () => {
         speech.text = "Please message Igor about that";
         window.open("/contact");
       }
-      if (spokenText.includes("")) {
-        speech.text = "What was that all about?";
-      }
+      // if (spokenText.includes("")) {
+      //   speech.text = "What was that all about?";
+      // }
 
       setTalking(false);
     }
