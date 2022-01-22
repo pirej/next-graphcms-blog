@@ -41,6 +41,10 @@ const StyledPost = styled.div`
 
     .textWrapper {
       padding: 0 5vw;
+
+      a {
+        color: #3987e5;
+      }
     }
 
     h1 {
