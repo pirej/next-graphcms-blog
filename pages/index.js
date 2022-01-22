@@ -5,7 +5,6 @@ import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 import HomePage from "../components/HomePage";
 import { usePosts } from "../hooks/usePosts";
-import Chatbot from "../components/Chatbot";
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1.graphcms.com/v2/ckxqxp5pl0pty01z1hfufbw6n/master",
@@ -31,7 +30,6 @@ export default function Home({ posts }) {
   return (
     <div>
       <HomePage imgUrl={posts[0].images[0].url} />
-      <Chatbot />
     </div>
   );
 }

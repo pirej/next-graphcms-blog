@@ -6,17 +6,17 @@ const maxBot = "/bot-awake.svg";
 
 const StyledBotSection = styled.div`
   /* background-color: #aac9f2; */
+  display: flex;
+  align-items: center;
 
   .btnWrapper {
-    position: fixed;
-    bottom: 85px;
-    right: 10%;
+    margin-top: 4rem;
   }
 
   .botWrapper {
-    position: fixed;
+    /* position: fixed;
     bottom: 50px;
-    right: 1%;
+    right: 1%; */
 
     :hover {
       cursor: pointer;
