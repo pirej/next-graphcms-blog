@@ -11,12 +11,22 @@ const StyledBotSection = styled.div`
 
   .btnWrapper {
     margin-top: 4rem;
+    .btn {
+      @media (max-width: 768px) {
+        font-size: 1.04rem;
+      }
+    }
   }
 
   .botWrapper {
-    /* position: fixed;
-    bottom: 50px;
-    right: 1%; */
+    @media (max-width: 360px) {
+      width: 126px;
+      height: 149px;
+    }
+    @media (max-width: 280px) {
+      width: 122px;
+      height: 144px;
+    }
 
     :hover {
       cursor: pointer;

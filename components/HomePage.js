@@ -138,15 +138,19 @@ const StyledHomePage = styled.div`
         }
         @media (max-width: 768px){
             width: 614.4px;
+            margin-bottom: 2.5rem;
         }
         @media (max-width: 540px){
             width: 453.6px;
+            margin-bottom: 2.8rem;
         }
         @media (max-width: 411px){
             width: 345.2px;
+            margin-bottom: 3.4rem;
         }
         @media (max-width: 360px){
             width: 302.4px;
+            margin-bottom: 2.4rem;
         }
         @media (max-width: 320px){
             width: 268.8px;
