@@ -8,11 +8,34 @@ const StyledContact = styled.section`
 
   .formWrap {
     width: 25vw;
+    margin: 10.4vh 0;
+    @media (max-width: 1440px) {
+      margin: 10.6vh 0;
+      width: 27vw;
+    }
+    @media (max-width: 1280px) {
+      margin: 12.6vh 0;
+      width: 32vw;
+    }
+    @media (max-width: 1024px) {
+      margin: 15vh 0;
+      width: 41vw;
+    }
+    @media (max-width: 768px) {
+      margin: 10vh 0;
+      width: 50vw;
+    }
+    @media (max-width: 540px) {
+      margin: 1vh 0;
+      width: 70vw;
+    }
+    @media (max-width: 411px) {
+      width: 90vw;
+    }
+
     .theForm {
       background-color: #d8e1ed;
-      margin-top: 2rem;
       padding: 0 9%;
-      /* padding: 0 3rem; */
       border-radius: 5px;
       display: flex;
       flex-direction: column;
@@ -23,7 +46,6 @@ const StyledContact = styled.section`
       label {
         display: block;
         margin-bottom: 0.2em;
-        /* padding: 0 1rem; */
         color: #5b718c;
       }
       p {
