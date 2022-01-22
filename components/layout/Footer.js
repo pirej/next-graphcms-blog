@@ -21,7 +21,7 @@ const FooterStyles = styled.footer`
 const Footer = () => {
   let date = new Date().getFullYear();
   const router = useRouter();
-  console.log(router.pathname);
+  // console.log(router.pathname);
 
   return (
     <FooterStyles>
