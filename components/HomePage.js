@@ -5,12 +5,12 @@ import Link from "next/link";
 
 const StyledHomePage = styled.div`
   display: flex;
-  padding: 5% 15%;
+  padding: 6% 15%;
   @media (max-width: 1440px) {
-    padding: 5% 12%;
+    padding: 7% 12%;
   }
   @media (max-width: 1280px) {
-    padding: 5% 12%;
+    padding: 10% 12%;
   }
   @media (max-width: 1024px) {
     padding: 5% 8%;
@@ -19,6 +19,7 @@ const StyledHomePage = styled.div`
     display: block;
 
     padding: 5% 10%;
+    margin-bottom: 6rem;
   }
   @media (max-width: 540px) {
     display: block;
