@@ -54,7 +54,7 @@ const Wrapper = styled.div`
         flex: 1;
       }
       @media (max-width: 411px) {
-        margin: 0 auto;
+        /* margin: 0 auto; */
       }
 
       margin-top: 4px;
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
     h2 {
       color: #5b718c;
     }
-    h2,
+
     h3 {
       color: #5b718c;
       font-weight: 500;
@@ -89,10 +89,10 @@ const Wrapper = styled.div`
       }
       @media (min-width: 1920px) {
         h2 {
-          font-size: 1.4rem;
+          font-size: 1.5rem;
         }
         h3 {
-          font-size: 1rem;
+          font-size: 1.05rem;
         }
       }
       @media (max-width: 1600px) {
@@ -151,15 +151,17 @@ const Wrapper = styled.div`
           font-size: 0.8rem;
         }
       }
-      @media (max-width: 411px) {
-        padding: 0 0.4rem;
+      @media (max-width: 414px) {
+        padding: 0 1rem;
         h2 {
-          font-size: 1.15rem;
+          font-size: 1.05rem;
           padding-top: 0.5rem;
+          margin: 0;
         }
         h3 {
           font-size: 0.95rem;
           padding-bottom: 0.8rem;
+          margin: 0;
         }
       }
       @media (max-width: 380px) {

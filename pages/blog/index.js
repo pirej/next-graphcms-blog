@@ -25,7 +25,7 @@ const PostStyle = styled.section`
     padding: 0 12%;
   }
   @media (max-width: 1024px) {
-    padding: 0 10%;
+    padding: 0 9%;
   }
   @media (max-width: 768px) {
     padding: 0 10%;
