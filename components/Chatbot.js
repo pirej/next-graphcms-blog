@@ -17,11 +17,41 @@ const StyledBotSection = styled.div`
     position: fixed;
     bottom: 50px;
     right: 1%;
+
     :hover {
       cursor: pointer;
       filter: saturate(105%);
       filter: brightness(110%);
     }
+
+    /* ************************* */
+
+    @keyframes slideUP {
+      0% {
+        transform: translateY(50%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .BotUp > span > img {
+      animation: 0.4s ease-out 0s 1 slideUP;
+    }
+    /* ************************* */
+    @keyframes slideback {
+      0% {
+        transform: translateY(-50%);
+      }
+      100% {
+        transform: translateY(0%);
+      }
+    }
+
+    .BotDown > span > img {
+      animation: 0.4s ease-out 0s 1 slideback;
+    }
+    /* ************************* */
   }
 `;
 
@@ -197,9 +227,24 @@ const Chatbot = () => {
       )}
       <div className="botWrapper" onClick={() => setSleep(!sleep)}>
         {sleep ? (
-          <Image src={minBot} width={147} height={70} alt="sleepingBot-image" />
+          <div className="BotDown">
+            <Image
+              src={minBot}
+              width={147}
+              height={166}
+              // height={70}
+              alt="sleepingBot-image"
+            />
+          </div>
         ) : (
-          <Image src={maxBot} width={147} height={166} alt="awakenBot-image" />
+          <div className="BotUp">
+            <Image
+              src={maxBot}
+              width={147}
+              height={166}
+              alt="awakenBot-image"
+            />
+          </div>
         )}
       </div>
     </StyledBotSection>
