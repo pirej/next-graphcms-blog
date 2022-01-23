@@ -65,11 +65,12 @@ const Wrapper = styled.div`
     }
     h2 {
       color: #5b718c;
+      font-weight: 500;
     }
 
     h3 {
       color: #5b718c;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     section {
