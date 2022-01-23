@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const StyledContact = styled.section`
@@ -26,7 +26,7 @@ const StyledContact = styled.section`
       width: 50vw;
     }
     @media (max-width: 540px) {
-      margin: 1vh 0;
+      margin: 10vh 0;
       width: 70vw;
     }
     @media (max-width: 411px) {
@@ -42,6 +42,11 @@ const StyledContact = styled.section`
       align-items: center;
       border-radius: 5px;
       border: solid thin #b8c7d9;
+
+      .sentSpan {
+        color: #3987e5;
+        margin-left: 0.5rem;
+      }
 
       label {
         display: block;
@@ -110,6 +115,7 @@ const StyledContact = styled.section`
 
 const ContactPage = () => {
   const form = useRef();
+  const [sent, setSent] = useState(false);
 
   const sendEmail = e => {
     e.preventDefault();
@@ -130,6 +136,10 @@ const ContactPage = () => {
         },
         e.target.reset()
       );
+    setSent(true);
+    setTimeout(() => {
+      setSent(false);
+    }, 4000);
   };
 
   return (
@@ -138,22 +148,36 @@ const ContactPage = () => {
         <form ref={form} onSubmit={sendEmail} className="theForm">
           <p>
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" />
+            <input type="text" name="name" minLength="3" required />
           </p>
           <p>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" />
+            <input type="email" name="email" minLength="7" required />
           </p>
           <p>
             <label htmlFor="subject">Subject</label>
-            <input type="text" name="subject" />
+            <input
+              type="text"
+              name="subject"
+              minLength="2"
+              maxLength="35"
+              required
+            />
           </p>
           <p>
             <label htmlFor="message">Message</label>
-            <textarea name="message" rows="7" cols="40" />
+            <textarea
+              name="message"
+              minLength="5"
+              maxLength="200"
+              required
+              rows="7"
+              cols="40"
+            />
           </p>
           <p>
             <button>Submit</button>
+            {sent && <span className="sentSpan">Message sent!</span>}
           </p>
         </form>
       </div>
