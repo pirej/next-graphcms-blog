@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Head from "next/head";
 
 const StyledContact = styled.section`
   display: flex;
@@ -143,45 +144,51 @@ const ContactPage = () => {
   };
 
   return (
-    <StyledContact>
-      <div className="formWrap">
-        <form ref={form} onSubmit={sendEmail} className="theForm">
-          <p>
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" minLength="3" required />
-          </p>
-          <p>
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" minLength="7" required />
-          </p>
-          <p>
-            <label htmlFor="subject">Subject</label>
-            <input
-              type="text"
-              name="subject"
-              minLength="2"
-              maxLength="35"
-              required
-            />
-          </p>
-          <p>
-            <label htmlFor="message">Message</label>
-            <textarea
-              name="message"
-              minLength="5"
-              maxLength="200"
-              required
-              rows="7"
-              cols="40"
-            />
-          </p>
-          <p>
-            <button>Submit</button>
-            {sent && <span className="sentSpan">Message sent!</span>}
-          </p>
-        </form>
-      </div>
-    </StyledContact>
+    <>
+      <Head>
+        <title>Contact</title>
+      </Head>
+
+      <StyledContact>
+        <div className="formWrap">
+          <form ref={form} onSubmit={sendEmail} className="theForm">
+            <p>
+              <label htmlFor="name">Name</label>
+              <input type="text" name="name" minLength="3" required />
+            </p>
+            <p>
+              <label htmlFor="email">Email</label>
+              <input type="email" name="email" minLength="7" required />
+            </p>
+            <p>
+              <label htmlFor="subject">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                minLength="2"
+                maxLength="35"
+                required
+              />
+            </p>
+            <p>
+              <label htmlFor="message">Message</label>
+              <textarea
+                name="message"
+                minLength="5"
+                maxLength="200"
+                required
+                rows="7"
+                cols="40"
+              />
+            </p>
+            <p>
+              <button>Submit</button>
+              {sent && <span className="sentSpan">Message sent!</span>}
+            </p>
+          </form>
+        </div>
+      </StyledContact>
+    </>
   );
 };
 

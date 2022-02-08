@@ -29,6 +29,9 @@ export default function Home({ posts }) {
 
   return (
     <div>
+      <Head>
+        <title>WebDevClub</title>
+      </Head>
       <HomePage imgUrl={posts[0].images[0].url} />
     </div>
   );

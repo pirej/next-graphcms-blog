@@ -47,26 +47,33 @@ const PostStyle = styled.section`
 
 const Blog = ({ posts }) => {
   return (
-    <PostStyle>
-      <div className="mainPostSection">
-        {posts.map(({ id, title, subtitle, postContent, images, slug }) => (
-          <PostCard
-            key={id}
-            title={title}
-            subtitle={subtitle}
-            imgUrl={images[0].url}
-            content={postContent.raw.children}
-            slug={slug}
-          />
-        ))}
-      </div>
-    </PostStyle>
+    <>
+      <Head>
+        <title>Blog</title>
+      </Head>
+
+      <PostStyle>
+        <div className="mainPostSection">
+          {posts.map(({ id, title, subtitle, postContent, images, slug }) => (
+            <PostCard
+              key={id}
+              title={title}
+              subtitle={subtitle}
+              imgUrl={images[0].url}
+              content={postContent.raw.children}
+              slug={slug}
+            />
+          ))}
+        </div>
+      </PostStyle>
+    </>
   );
 };
 
 export default Blog;
 
 import { gql } from "graphql-request";
+import Head from "next/head";
 
 const QUERY = gql`
   {

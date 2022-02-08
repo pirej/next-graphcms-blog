@@ -2,6 +2,7 @@ import { gql, GraphQLClient } from "graphql-request";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Image from "next/image";
 import styled from "styled-components";
+import Head from "next/head";
 
 const StyledPost = styled.div`
   /* background-color: teal; */
@@ -68,18 +69,23 @@ function PostDetailPage({ post }) {
   const altImg = post.images[0].fileName;
 
   return (
-    <StyledPost>
-      <section>
-        <h1>{post.title}</h1>
-        <div className="imgWrapper">
-          <Image src={imgUrl} alt={altImg} width={600} height={400} />
-        </div>
-        <h3>{post.subtitle}</h3>
-        <div className="textWrapper">
-          <RichText content={mainContent} />
-        </div>
-      </section>
-    </StyledPost>
+    <>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
+      <StyledPost>
+        <section>
+          <h1>{post.title}</h1>
+          <div className="imgWrapper">
+            <Image src={imgUrl} alt={altImg} width={600} height={400} />
+          </div>
+          <h3>{post.subtitle}</h3>
+          <div className="textWrapper">
+            <RichText content={mainContent} />
+          </div>
+        </section>
+      </StyledPost>
+    </>
   );
 }
 
